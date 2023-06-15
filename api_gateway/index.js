@@ -6,7 +6,7 @@ const upload = multer()
 const bodyParser = require('body-parser');
 const formdata = require('form-data');
 const fs = require('fs');
-const {isAuthorized, hasRole } = require('../middleware/auth');
+const {isAuthorized, hasRole } = require('./middleware/auth');
 
 const port = process.env.API_GATEWAY_PORT || 3000;
 
