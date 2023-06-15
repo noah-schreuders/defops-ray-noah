@@ -42,11 +42,9 @@ services:
       TARGET_SERVICE_URL: ${TARGET_SERVICE_URL}
       SCORE_SERVICE_URL: ${SCORE_SERVICE_URL}
       EXTERNAL_SERVICE_URL: ${EXTERNAL_SERVICE_URL}
-      JWT_SECRET: ${JWT_SECRET}
     depends_on:
       - mongodb
   
-
   authentication_service:
     build: 
       context: ./authentication_service
@@ -56,7 +54,8 @@ services:
       - "${AUTHENTICATION_SERVICE_PORT}:3012"
     environment:
       AUTHENTICATION_SERVICE_PORT: ${AUTHENTICATION_SERVICE_PORT}
-      AUTHENTICATIONSERVICE_DB_CONNECTION: ${AUTHENTICATION_SERVICE_DB_CONNECTION}
+      AUTHENTICATION_SERVICE_DB_CONNECTION: ${AUTHENTICATION_SERVICE_DB_CONNECTION}
+      JWT_SECRET: ${JWT_SECRET}
     depends_on:
       mongodb:
         condition: service_started

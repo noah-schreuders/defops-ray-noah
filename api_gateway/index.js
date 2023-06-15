@@ -10,10 +10,10 @@ const {isAuthorized, hasRole } = require('./middleware/auth');
 
 const port = process.env.API_GATEWAY_PORT || 3000;
 
-const targetService = process.env.TARGET_SERVICE || 'http://127.0.0.1:3001';
-const authenticationService = process.env.AUTHENTICATION_SERVICE || 'http://127.0.0.1:3002';
-const scoreService = process.env.SCORE_SERVICE || 'http://127.0.0.1:3003';
-const externalService = process.env.EXTERNAL_SERVICE || 'http://127.0.0.1:3004';
+const targetService = process.env.TARGET_SERVICE_URL || 'http://127.0.0.1:3001';
+const authenticationService = process.env.AUTHENTICATION_SERVICE_URL || 'http://127.0.0.1:3002';
+const scoreService = process.env.SCORE_SERVICE_URL || 'http://127.0.0.1:3003';
+const externalService = process.env.EXTERNAL_SERVICE_URL || 'http://127.0.0.1:3004';
 
 require ('dotenv').config();
 

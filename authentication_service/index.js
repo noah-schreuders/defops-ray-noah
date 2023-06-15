@@ -2,6 +2,7 @@ require('dotenv').config();
 require('./mongooseConnection');
 
 const port = process.env.AUTHENTICATION_SERVICE_PORT || 3002;
+const jwtSecret = process.env.JWT_SECRET || 'secret';
 const { connect, getChannel } = require('../rabbitmq_connection');
 const express = require('express');
 const app = express();
@@ -11,7 +12,7 @@ const jwt = require('jsonwebtoken');
 const jwtPassport = require('passport-jwt');
 const bcrypt = require('bcrypt');
 const extractJWT = jwtPassport.ExtractJwt;
-const jwtOptions = {jwtFromRequest: extractJWT.fromAuthHeaderAsBearerToken(), secretOrKey: process.env.JWT_SECRET};
+const jwtOptions = {jwtFromRequest: extractJWT.fromAuthHeaderAsBearerToken(), secretOrKey: jwtSecret};
 const User = require('./models/user');
 const amqp = require('amqplib');
 const axios = require('axios');
