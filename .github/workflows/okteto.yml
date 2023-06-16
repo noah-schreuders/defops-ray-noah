@@ -1,0 +1,51 @@
+on:
+  pull_request:
+    branches:
+      - main
+
+name: okteto_pipeline
+
+jobs:
+  devflow:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@main
+
+    - name: context
+      uses: okteto/context@latest
+      with:
+        token: ${{ secrets.OKTETO_TOKEN }}
+
+    - name: "Activate Namespace"
+      uses: okteto/namespace@latest
+      with:
+        name: noah-schreuders
+
+    - name: "Trigger the pipeline"
+      uses: okteto/pipeline@latest
+      with:
+        name: pr-${{ github.event.number }}
+        timeout: 8m
+        skipIfExists: true
+        variables: |
+          DB_HOST=mysql,CONFIG_PATH=/tmp/config.yaml,
+          EXTERNAL_SERVICE_DB_CONNECTION=mongodb://mongodb:27017/external-service,
+          AUTHENTICATION_SERVICE_DB_CONNECTION=mongodb://mongodb:27017/authentication-service,
+          SCORE_SERVICE_DB_CONNECTION=mongodb://mongodb:27017/score-service,
+          TARGET_SERVICE_DB_CONNECTION=mongodb://mongodb:27017/target-service,
+          API_GATEWAY_URL=http://api_gateway:3010,
+          TARGET_SERVICE_URL=http://target_service:3012,
+          AUTHENTICATION_SERVICE_URL=http://authentication_service:3011,
+          SCORE_SERVICE_URL=http://score_service:3013,
+          EXTERNAL_SERVICE_URL=http://external_service:3014,
+          API_GATE_PORT=3000,
+          TARGET_SERVICE_PORT=3001,
+          AUTHENTICATION_SERVICE_PORT=3002,
+          SCORE_SERVICE_PORT=3003,
+          EXTERNAL_SERVICE_PORT=3004,
+          JWT_SECRET=secret,
+          OPAQUE_CODE=secrets,
+          API_KEY=acc_223de788208e807,
+          API_SECRET=e7f4fce5e11cca29c9881eb79606f369,
+          RABBITMQ_URL=amqp://rabbitmq:5672,
