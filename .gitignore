@@ -105,3 +105,4 @@ dist
 
 # Visual studio solution stuff
 .vs
+**/grafana.db
