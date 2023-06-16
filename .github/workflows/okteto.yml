@@ -3,7 +3,7 @@ on:
     branches:
       - main
 
-name: okteto_pipeline
+name: oktetoPipeline
 
 jobs:
   devflow:
