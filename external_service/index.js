@@ -10,7 +10,7 @@ const db = mongoose.connection;
 const formdata = require('form-data');
 const fs = require('fs');
 const Tag = require('./models/tag');
-const { hasOpaqueToken } = require('../middleware/auth');
+const { hasOpaqueToken } = require('./middleware/auth');
 const multer = require('multer');
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {

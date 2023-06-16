@@ -8,7 +8,7 @@ const app = express();
 const mongoose = require('mongoose');
 const db = mongoose.connection;
 const multer = require('multer');
-const { hasOpaqueToken } = require('../middleware/auth');
+const { hasOpaqueToken } = require('./middleware/auth');
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null, "./public/data/uploads/");

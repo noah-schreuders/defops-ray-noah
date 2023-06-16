@@ -16,7 +16,7 @@ const jwtOptions = {jwtFromRequest: extractJWT.fromAuthHeaderAsBearerToken(), se
 const User = require('./models/user');
 const amqp = require('amqplib');
 const axios = require('axios');
-const { hasOpaqueToken } = require('../middleware/auth');
+const { hasOpaqueToken } = require('./middleware/auth');
 
 app.use(express.json());
 

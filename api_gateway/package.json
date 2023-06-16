@@ -5,6 +5,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "amqplib": "^0.10.3",
     "axios": "^0.24.0",
     "bcrypt": "^5.1.0",
     "dotenv": "^16.0.3",

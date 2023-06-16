@@ -4,7 +4,7 @@ const port = process.env.SCORE_SERVICE_PORT || 3003;
 const { connect, getChannel } = require('./rabbitmq_connection');
 const express = require('express');
 const app = express();
-const { hasOpaqueToken } = require('../middleware/auth');
+const { hasOpaqueToken } = require('./middleware/auth');
 
 app.use(express.json());
 
