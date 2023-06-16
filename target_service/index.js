@@ -20,9 +20,6 @@ const storage = multer.diskStorage({
 const upload = multer({storage: storage});
 
 
-
-
-
 app.use(express.json());
 
 let connection;
