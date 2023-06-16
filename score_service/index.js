@@ -1,7 +1,7 @@
 require('dotenv').config();
 require('./mongooseConnection');
 const port = process.env.SCORE_SERVICE_PORT || 3003;
-const { connect, getChannel } = require('../rabbitmq_connection');
+const { connect, getChannel } = require('./rabbitmq_connection');
 const express = require('express');
 const app = express();
 const { hasOpaqueToken } = require('../middleware/auth');

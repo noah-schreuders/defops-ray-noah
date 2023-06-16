@@ -3,7 +3,7 @@ require('./mongooseConnection');
 
 const port = process.env.AUTHENTICATION_SERVICE_PORT || 3002;
 const jwtSecret = process.env.JWT_SECRET || 'secret';
-const { connect, getChannel } = require('../rabbitmq_connection');
+const { connect, getChannel } = require('./rabbitmq_connection');
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');

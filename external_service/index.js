@@ -1,7 +1,7 @@
 require('dotenv').config();
 require('./mongooseConnection');
 const axios = require('axios');
-const { connect, getChannel } = require('../rabbitmq_connection');
+const { connect, getChannel } = require('./rabbitmq_connection');
 const port = process.env.EXTERNAL_SERVICE_PORT || 3004;
 const express = require('express');
 const app = express();
