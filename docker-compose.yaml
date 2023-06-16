@@ -122,3 +122,8 @@ services:
     ports:
       - 9090:9090
     command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
+
+  grafana:
+    build: ./grafana
+    ports:
+      - 4000:3000
