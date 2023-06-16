@@ -8,6 +8,6 @@ COPY package.json ./
 
 RUN npm i
 
-EXPOSE 3020
+EXPOSE 3054
 
 CMD ["node", "index.js", "rabbitmq"]
