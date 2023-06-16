@@ -15,8 +15,12 @@ const authenticationService = process.env.AUTHENTICATION_SERVICE_URL || 'http://
 const scoreService = process.env.SCORE_SERVICE_URL || 'http://127.0.0.1:3003';
 const externalService = process.env.EXTERNAL_SERVICE_URL || 'http://127.0.0.1:3004';
 
+const promBundle = require('express-prom-bundle');
+const metricsMiddleware = promBundle({includePath: true, includeStatusCode: true, promClient: {collectDefaultMetrics: {}}});
+
 require ('dotenv').config();
 
+app.use(metricsMiddleware);
 app.use(bodyParser.json({limit: "50mb"}));
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb"}));
 

@@ -6,7 +6,8 @@
     "start": "concurrently \"node ./authentication_service/index.js\" \"node ./api_gateway/index.js\" \"node ./target_service/index.js\" \"node ./external_service/index.js\" \"node ./score_service/index.js\"",
     "test": "jest",
     "lint": "npx eslint .",
-    "dev": "nodemon -r dotenv/config ./bin/www"
+    "dev": "nodemon -r dotenv/config ./bin/www",
+    "start.dev": "nodemon ./bin/www"
   },
   "jest": {
     "testEnvironment": "node",
@@ -47,6 +48,7 @@
     "@shelf/jest-mongodb": "^4.1.7",
     "eslint": "^8.42.0",
     "jest": "^29.5.0",
+    "nodemon": "^2.0.22",
     "supertest": "^6.3.3"
   }
 }
