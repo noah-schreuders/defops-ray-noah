@@ -1,0 +1,9 @@
+groups:
+  - name: ErrorAlert
+    rules:
+      - alert: "On API down"
+        expr: up{job="api_gateway"} < 1
+        for: 30s
+      - alert: "API slow"
+        expr: http_request_duration_seconds_sum{job="api_gateway", path="/users/slow"} > 2
+        for: 20s
