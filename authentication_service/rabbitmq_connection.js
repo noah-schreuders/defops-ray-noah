@@ -3,7 +3,7 @@ let connection = null;
 
 async function connect() {
   try {
-    connection = await amqp.connect('amqp://localhost:5672');
+    connection = await amqp.connect('amqp://rabbitmq:5672');
     return connection;
   } catch (error) {
     console.log(error);

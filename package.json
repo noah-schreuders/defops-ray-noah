@@ -24,6 +24,7 @@
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
     "express": "~4.16.1",
+    "express-prom-bundle": "^6.6.0",
     "form-data": "^4.0.0",
     "fs": "^0.0.1-security",
     "got": "^12.6.0",
@@ -39,7 +40,8 @@
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
     "path": "^0.12.7",
-    "path-to-regexp": "^6.2.1"
+    "path-to-regexp": "^6.2.1",
+    "prom-client": "^14.2.0"
   },
   "devDependencies": {
     "@shelf/jest-mongodb": "^4.1.7",
