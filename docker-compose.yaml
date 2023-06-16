@@ -35,7 +35,7 @@ services:
       dockerfile: Dockerfile
     env_file: ./.env
     ports:
-      - "${API_GATE_PORT}:3020"
+      - "${API_GATE_PORT}:3054"
     environment:
       API_GATE_PORT: ${API_GATE_PORT}
       AUTHENTICATION_SERVICE_URL: ${AUTHENTICATION_SERVICE_URL}
